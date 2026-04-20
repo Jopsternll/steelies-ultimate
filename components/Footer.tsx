@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="flex flex-col items-start gap-4">
             <div className="relative w-48 h-20">
               <Image
-                src="/logo.png"
+                src="/Steelies_logo_pantone.png"
                 alt="Steelies Ultimate"
                 fill
                 className="object-contain brightness-0 invert"
