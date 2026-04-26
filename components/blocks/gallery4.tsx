@@ -1,13 +1,9 @@
 "use client";
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
-import { Button } from "@/components/ui/button";
 import {
   Carousel,
-  CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
@@ -24,68 +20,24 @@ export interface Gallery4Props {
   title?: string;
   description?: string;
   items: Gallery4Item[];
+  onItemClick?: (id: string) => void;
 }
 
 const Gallery4 = ({
   title = "Case Studies",
   description = "Discover how leading companies and developers are leveraging modern web technologies to build exceptional digital experiences.",
   items,
+  onItemClick,
 }: Gallery4Props) => {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    if (!carouselApi) {
-      return;
-    }
-    const updateSelection = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev());
-      setCanScrollNext(carouselApi.canScrollNext());
-      setCurrentSlide(carouselApi.selectedScrollSnap());
-    };
-    updateSelection();
-    carouselApi.on("select", updateSelection);
-    return () => {
-      carouselApi.off("select", updateSelection);
-    };
-  }, [carouselApi]);
-
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <div className="mb-8 flex items-end justify-between md:mb-12">
-          <div className="flex flex-col gap-3">
-            <h2 className="text-3xl font-medium md:text-4xl">
-              {title}
-            </h2>
-            <p className="max-w-lg text-muted-foreground">{description}</p>
-          </div>
-          <div className="hidden shrink-0 gap-2 md:flex">
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={() => carouselApi?.scrollPrev()}
-              disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto"
-            >
-              <ArrowLeft className="size-5" />
-            </Button>
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={() => carouselApi?.scrollNext()}
-              disabled={!canScrollNext}
-              className="disabled:pointer-events-auto"
-            >
-              <ArrowRight className="size-5" />
-            </Button>
-          </div>
+        <div className="mb-8 flex flex-col gap-3 md:mb-12">
+          <h2 className="text-3xl font-medium md:text-4xl">{title}</h2>
+          <p className="max-w-lg text-muted-foreground">{description}</p>
         </div>
 
         <Carousel
-          setApi={setCarouselApi}
           opts={{
             align: "start",
             breakpoints: {
@@ -99,7 +51,10 @@ const Gallery4 = ({
                 key={item.id}
                 className="basis-1/2 pl-3 sm:basis-1/3 lg:basis-1/5"
               >
-                <a href={item.href} className="group block rounded-xl">
+                <button
+                  className="group block w-full rounded-xl text-left"
+                  onClick={() => onItemClick?.(item.id)}
+                >
                   <div className="relative aspect-square w-full overflow-hidden rounded-xl">
                     <Image
                       src={item.image}
@@ -117,24 +72,11 @@ const Gallery4 = ({
                       </div>
                     </div>
                   </div>
-                </a>
+                </button>
               </CarouselItem>
             ))}
           </CarouselContent>
         </Carousel>
-
-        <div className="mt-6 flex justify-center gap-2">
-          {items.map((_, index) => (
-            <button
-              key={index}
-              className={`h-2 w-2 rounded-full transition-colors ${
-                currentSlide === index ? "bg-primary" : "bg-primary/20"
-              }`}
-              onClick={() => carouselApi?.scrollTo(index)}
-              aria-label={`Ga naar slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );
