@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --primary: 223 65% 15%;
+    --primary-foreground: 0 0% 98%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 195 100% 45%;
+    --accent-foreground: 223 65% 15%;
+    --ring: 223 65% 15%;
+    --input: 214 32% 91%;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
