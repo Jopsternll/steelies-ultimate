@@ -45,7 +45,7 @@ export default function HeroSection() {
             Bekijk segmenten
           </a>
           <a
-            href="https://webshop.asf-fischer.nl"
+            href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3 border-2 border-steelies-blue text-steelies-blue font-semibold rounded-lg hover:bg-steelies-blue hover:text-white transition-colors duration-200"

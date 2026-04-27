@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
@@ -11,9 +12,10 @@ export function Header() {
 	const scrolled = useScroll(10);
 
 	const links = [
-		{ label: 'Segmenten', href: '#segmenten' },
-		{ label: 'Over ons', href: '#over-ons' },
-		{ label: 'Contact', href: '#contact' },
+		{ label: 'Segmenten', href: '/segmenten' },
+		{ label: 'Schappenplan', href: '/schappenplan' },
+		{ label: 'Over ons', href: '/over-ons' },
+		{ label: 'Contact', href: '/#contact' },
 	];
 
 	React.useEffect(() => {
@@ -45,7 +47,7 @@ export function Header() {
 				)}
 			>
 				{/* Logo */}
-				<a href="#" className="relative h-8 w-32 shrink-0">
+				<Link href="/" className="relative h-8 w-32 shrink-0">
 					<Image
 						src="/Steelies_logo_pantone.png"
 						alt="Steelies Ultimate"
@@ -53,7 +55,7 @@ export function Header() {
 						className="object-contain object-left"
 						priority
 					/>
-				</a>
+				</Link>
 
 				{/* Desktop nav */}
 				<div className="hidden items-center gap-2 md:flex">
@@ -67,14 +69,12 @@ export function Header() {
 						</a>
 					))}
 					<a
-						href="https://webshop.asf-fischer.nl"
+						href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
 						target="_blank"
 						rel="noopener noreferrer"
+						className={buttonVariants({ variant: 'ghost' })}
 					>
-						<Button variant="outline">Webshop</Button>
-					</a>
-					<a href="#segmenten">
-						<Button>Bekijk Segmenten</Button>
+						Webshop
 					</a>
 				</div>
 
@@ -117,16 +117,12 @@ export function Header() {
 					</div>
 					<div className="flex flex-col gap-2">
 						<a
-							href="https://webshop.asf-fischer.nl"
+							href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
 							target="_blank"
 							rel="noopener noreferrer"
+							className={buttonVariants({ variant: 'ghost', className: 'justify-start' })}
 						>
-							<Button variant="outline" className="w-full">
-								Webshop
-							</Button>
-						</a>
-						<a href="#segmenten" onClick={() => setOpen(false)}>
-							<Button className="w-full">Bekijk Segmenten</Button>
+							Webshop
 						</a>
 					</div>
 				</div>

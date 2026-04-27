@@ -20,14 +20,12 @@ export interface Gallery4Props {
   title?: string;
   description?: string;
   items: Gallery4Item[];
-  onItemClick?: (id: string) => void;
 }
 
 const Gallery4 = ({
   title = "Case Studies",
   description = "Discover how leading companies and developers are leveraging modern web technologies to build exceptional digital experiences.",
   items,
-  onItemClick,
 }: Gallery4Props) => {
   return (
     <section className="py-16">
@@ -51,10 +49,7 @@ const Gallery4 = ({
                 key={item.id}
                 className="basis-1/2 pl-3 sm:basis-1/3 lg:basis-1/5"
               >
-                <button
-                  className="group block w-full rounded-xl text-left"
-                  onClick={() => onItemClick?.(item.id)}
-                >
+                <a href={item.href} className="group block rounded-xl">
                   <div className="relative aspect-square w-full overflow-hidden rounded-xl">
                     <Image
                       src={item.image}
@@ -72,7 +67,7 @@ const Gallery4 = ({
                       </div>
                     </div>
                   </div>
-                </button>
+                </a>
               </CarouselItem>
             ))}
           </CarouselContent>

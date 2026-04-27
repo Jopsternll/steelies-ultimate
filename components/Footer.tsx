@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-steelies-navy text-white py-14 px-6">
+    <footer id="contact" className="bg-steelies-navy text-white py-14 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Logo + tagline */}
@@ -16,7 +16,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-steelies-light font-semibold tracking-widest text-sm uppercase">
-              Sterk in <span className="text-blue-300">Verbinden</span>
+              Sterk in <span className="text-[#00C8E8]">Verbinden</span>
             </p>
             <p className="text-gray-400 text-sm leading-relaxed">
               Het complete bevestigingsmiddelen assortiment voor de professionele vakhandel.
@@ -25,7 +25,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold uppercase tracking-widest text-sm text-blue-300 mb-4">
+            <h4 className="font-bold uppercase tracking-widest text-sm text-[#00C8E8] mb-4">
               Contact
             </h4>
             <address className="not-italic space-y-2 text-gray-300 text-sm">
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-bold uppercase tracking-widest text-sm text-blue-300 mb-4">
+            <h4 className="font-bold uppercase tracking-widest text-sm text-[#00C8E8] mb-4">
               Links
             </h4>
             <ul className="space-y-2 text-sm text-gray-300">
@@ -70,12 +70,12 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://webshop.asf-fischer.nl"
+                  href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  webshop.asf-fischer.nl
+                  webshop.asf-fischer.com
                 </a>
               </li>
               <li>
