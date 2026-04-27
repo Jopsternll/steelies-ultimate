@@ -22,7 +22,7 @@ const features = [
   {
     icon: null,
     image: '/texschroeven.png',
-    title: 'Vakwinkel ready',
+    title: 'Gemak',
     description: 'Speciaal ontworpen schapopstelling voor de vakhandel. Overzichtelijk, efficiënt en altijd op voorraad.',
   },
 ]
