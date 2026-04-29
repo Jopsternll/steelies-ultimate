@@ -14,7 +14,7 @@ const segmentMap = {
   '305': 'nagels',
 }
 
-const wb = XLSX.readFile(join(root, 'public', 'Steelies_assortiment.xlsx'))
+const wb = XLSX.readFile(join(root, 'public', 'Assortiment Steelies Ultimate.xlsx'))
 const ws = wb.Sheets[wb.SheetNames[0]]
 const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' })
 
