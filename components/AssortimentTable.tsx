@@ -269,7 +269,7 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
     <section className="bg-white">
 
       {/* ── Sticky controls bar ── */}
-      <div className="sticky top-14 z-40 bg-white/95 supports-[backdrop-filter]:bg-white/80 backdrop-blur-lg border-b border-gray-100 shadow-sm px-4 sm:px-6 py-3">
+      <div className="sticky top-[97px] z-40 bg-white/95 supports-[backdrop-filter]:bg-white/80 backdrop-blur-lg border-b border-gray-100 shadow-sm px-4 sm:px-6 py-3">
         <div className="max-w-5xl mx-auto space-y-3">
 
           {/* Search + export */}

@@ -41,7 +41,7 @@ export default function Breadcrumbs() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-100 px-4 sm:px-6 py-2.5">
+      <nav aria-label="Breadcrumb" className="sticky top-14 z-30 bg-white/95 backdrop-blur-lg border-b border-gray-100 px-4 sm:px-6 py-2.5">
         <ol className="max-w-5xl mx-auto flex items-center gap-1.5 text-sm text-gray-500 flex-wrap">
           {crumbs.map((crumb, i) => {
             const isLast = i === crumbs.length - 1
