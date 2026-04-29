@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AssortimentTable from '@/components/AssortimentTable'
+import ContactForm from '@/components/ContactForm'
 import type { Product } from '@/types/assortiment'
 import productsData from '@/data/assortiment.json'
 
@@ -38,20 +39,22 @@ export default function AssortimentPage() {
       {/* Table */}
       <AssortimentTable products={products} />
 
-      {/* CTA */}
-      <section className="bg-steelies-navy py-14 px-6 text-center">
-        <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide mb-4">
-          Vragen over het assortiment?
-        </h2>
-        <p className="text-gray-300 mb-8 max-w-md mx-auto">
-          Neem contact op met ons team voor meer informatie of een offerte.
-        </p>
-        <Link
-          href="/#contact"
-          className="inline-block px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200"
-        >
-          Neem contact op
-        </Link>
+      {/* Contact formulier */}
+      <section className="bg-gray-50 py-16 px-6">
+        <div className="max-w-2xl mx-auto text-center mb-10">
+          <p className="text-[#00C8E8] font-semibold uppercase tracking-widest text-sm mb-3">
+            Direct contact
+          </p>
+          <h2 className="text-3xl font-black text-steelies-dark uppercase tracking-wide mb-4">
+            Neem contact op
+          </h2>
+          <div className="h-1 w-16 bg-[#00C8E8] mx-auto mb-4" />
+          <p className="text-gray-500">
+            Vragen over het assortiment of interesse in een offerte?
+            Vul het formulier in en ons team neemt zo spoedig mogelijk contact met u op.
+          </p>
+        </div>
+        <ContactForm />
       </section>
     </main>
   )
