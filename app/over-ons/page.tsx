@@ -147,7 +147,7 @@ function Card({ item }: { item: typeof timeline[number] }) {
       {/* Image area */}
       <div className="relative h-44 bg-steelies-light flex items-center justify-center">
         {item.image ? (
-          <Image src={item.image} alt={item.title} fill className="object-cover" />
+          <Image src={item.image} alt={item.title} fill className="object-contain p-4" />
         ) : (
           <div className="flex flex-col items-center gap-2 text-gray-300">
             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
