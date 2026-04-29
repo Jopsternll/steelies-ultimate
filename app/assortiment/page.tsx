@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import AssortimentTable from '@/components/AssortimentTable'
 import type { Product } from '@/types/assortiment'
 import productsData from '@/data/assortiment.json'
@@ -38,21 +37,6 @@ export default function AssortimentPage() {
       {/* Table */}
       <AssortimentTable products={products} />
 
-      {/* Schappenplan CTA */}
-      <section className="bg-steelies-navy py-14 px-6 text-center">
-        <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide mb-4">
-          Interesse in een schappenplan?
-        </h2>
-        <p className="text-gray-300 mb-8 max-w-md mx-auto">
-          Vraag een standaard of maatwerk schappenplan aan via onze schappenplan pagina.
-        </p>
-        <Link
-          href="/schappenplan"
-          className="inline-block px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200"
-        >
-          Vraag een schappenplan aan
-        </Link>
-      </section>
     </main>
   )
 }
