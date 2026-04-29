@@ -33,20 +33,11 @@ export function Header() {
 	return (
 		<header
 			className={cn(
-				'sticky top-0 z-50 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out',
-				{
-					'bg-background/95 supports-[backdrop-filter]:bg-background/60 border-border backdrop-blur-lg md:top-4 md:max-w-4xl md:shadow':
-						scrolled && !open,
-					'bg-background/95': open,
-				},
+				'sticky top-0 z-50 w-full border-b border-border bg-background/95 supports-[backdrop-filter]:bg-background/60 backdrop-blur-lg',
+				{ 'bg-background/95': open },
 			)}
 		>
-			<nav
-				className={cn(
-					'flex h-14 w-full items-center justify-between px-4 md:h-12 md:transition-all md:ease-out',
-					{ 'md:px-2': scrolled },
-				)}
-			>
+			<nav className="flex h-14 w-full max-w-5xl mx-auto items-center justify-between px-4">
 				{/* Logo */}
 				<Link href="/" className="relative h-8 w-32 shrink-0">
 					<Image
