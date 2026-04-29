@@ -418,10 +418,8 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
                       <td className="px-4 py-2.5 font-mono text-xs text-steelies-dark whitespace-nowrap">
                         {p.artikelnummer}
                       </td>
-                      <td className="px-4 py-2.5 max-w-xs">
-                        <span className="block truncate text-gray-700" title={p.omschrijving}>
-                          {p.omschrijving}
-                        </span>
+                      <td className="px-4 py-2.5">
+                        <span className="text-gray-700">{p.omschrijving}</span>
                       </td>
                       {showVerpakking && (
                         <td className="px-4 py-2.5 text-gray-600 whitespace-nowrap">
