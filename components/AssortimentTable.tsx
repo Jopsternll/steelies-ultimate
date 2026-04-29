@@ -258,73 +258,104 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
   const totalCols = 2 + 1 + 1 + (showVerpakking ? 1 : 0) + (showEAN ? 1 : 0) // checkbox + segment + art + omschr + ...
 
   return (
-    <section className="bg-white py-8 px-4 sm:px-6">
-      <div className="max-w-5xl mx-auto">
+    <section className="bg-white">
 
-        {/* Toolbar */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
-          <div className="relative w-full sm:w-80">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-            <input
-              type="search"
-              placeholder="Zoek op artikelnummer of omschrijving…"
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00C8E8] focus:border-transparent"
-            />
-          </div>
-          <div className="flex gap-2 flex-shrink-0">
-            <button onClick={exportAllToExcel} className="flex items-center gap-1.5 px-4 py-2 bg-[#00C8E8] text-steelies-navy font-semibold text-sm rounded-lg hover:bg-[#00aecb] transition-colors duration-200">
-              <TableIcon className="w-4 h-4" /> Excel
-            </button>
-            <button onClick={exportAllToPDF} className="flex items-center gap-1.5 px-4 py-2 bg-steelies-navy text-white font-semibold text-sm rounded-lg hover:bg-[#1A2F5A] transition-colors duration-200">
-              <FileDown className="w-4 h-4" /> PDF
-            </button>
-          </div>
-        </div>
+      {/* ── Sticky controls bar ── */}
+      <div className="sticky top-14 z-40 bg-white/95 supports-[backdrop-filter]:bg-white/80 backdrop-blur-lg border-b border-gray-100 shadow-sm px-4 sm:px-6 py-3">
+        <div className="max-w-5xl mx-auto space-y-3">
 
-        {/* Segment tabs */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          <button
-            onClick={() => setActiveSegment('alle')}
-            className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors duration-200 ${activeSegment === 'alle' ? 'bg-steelies-navy text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
-          >
-            Alle
-          </button>
-          {segments.map(s => (
+          {/* Search + export */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="relative w-full sm:w-80">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input
+                type="search"
+                placeholder="Zoek op artikelnummer of omschrijving…"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00C8E8] focus:border-transparent"
+              />
+            </div>
+            <div className="flex gap-2 flex-shrink-0">
+              <button onClick={exportAllToExcel} className="flex items-center gap-1.5 px-4 py-2 bg-[#00C8E8] text-steelies-navy font-semibold text-sm rounded-lg hover:bg-[#00aecb] transition-colors duration-200">
+                <TableIcon className="w-4 h-4" /> Excel
+              </button>
+              <button onClick={exportAllToPDF} className="flex items-center gap-1.5 px-4 py-2 bg-steelies-navy text-white font-semibold text-sm rounded-lg hover:bg-[#1A2F5A] transition-colors duration-200">
+                <FileDown className="w-4 h-4" /> PDF
+              </button>
+            </div>
+          </div>
+
+          {/* Segment tabs */}
+          <div className="flex flex-wrap gap-2">
             <button
-              key={s.id}
-              onClick={() => setActiveSegment(s.id)}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors duration-200 ${activeSegment === s.id ? s.active : s.inactive}`}
+              onClick={() => setActiveSegment('alle')}
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors duration-200 ${activeSegment === 'alle' ? 'bg-steelies-navy text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
             >
-              {s.label}
+              Alle
             </button>
-          ))}
-        </div>
-
-        {/* Meta row */}
-        <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
-          <span>
-            <span className="font-semibold text-steelies-dark">{sortedProducts.length.toLocaleString('nl-NL')}</span> artikelen gevonden
-          </span>
-          <div className="relative" ref={colMenuRef}>
-            <button onClick={() => setColMenuOpen(o => !o)} className="flex items-center gap-1 px-3 py-1 border border-gray-200 rounded-lg text-gray-500 hover:bg-gray-50 transition-colors">
-              Kolommen <ChevronDown className="w-3 h-3" />
-            </button>
-            {colMenuOpen && (
-              <div className="absolute right-0 mt-1 w-44 bg-white border border-gray-100 rounded-xl shadow-lg z-10 p-2">
-                <label className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-50 cursor-pointer text-sm">
-                  <input type="checkbox" checked={showVerpakking} onChange={e => setShowVerpakking(e.target.checked)} className="accent-steelies-navy" />
-                  Verpakking
-                </label>
-                <label className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-50 cursor-pointer text-sm">
-                  <input type="checkbox" checked={showEAN} onChange={e => setShowEAN(e.target.checked)} className="accent-steelies-navy" />
-                  EAN
-                </label>
-              </div>
-            )}
+            {segments.map(s => (
+              <button
+                key={s.id}
+                onClick={() => setActiveSegment(s.id)}
+                className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors duration-200 ${activeSegment === s.id ? s.active : s.inactive}`}
+              >
+                {s.label}
+              </button>
+            ))}
           </div>
+
+          {/* Meta row */}
+          <div className="flex items-center justify-between text-sm text-gray-500">
+            <span>
+              <span className="font-semibold text-steelies-dark">{sortedProducts.length.toLocaleString('nl-NL')}</span> artikelen gevonden
+            </span>
+            <div className="relative" ref={colMenuRef}>
+              <button onClick={() => setColMenuOpen(o => !o)} className="flex items-center gap-1 px-3 py-1 border border-gray-200 rounded-lg text-gray-500 hover:bg-gray-50 transition-colors">
+                Kolommen <ChevronDown className="w-3 h-3" />
+              </button>
+              {colMenuOpen && (
+                <div className="absolute right-0 mt-1 w-44 bg-white border border-gray-100 rounded-xl shadow-lg z-10 p-2">
+                  <label className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-50 cursor-pointer text-sm">
+                    <input type="checkbox" checked={showVerpakking} onChange={e => setShowVerpakking(e.target.checked)} className="accent-steelies-navy" />
+                    Verpakking
+                  </label>
+                  <label className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-50 cursor-pointer text-sm">
+                    <input type="checkbox" checked={showEAN} onChange={e => setShowEAN(e.target.checked)} className="accent-steelies-navy" />
+                    EAN
+                  </label>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Favourites bar */}
+          {favorites.size > 0 && (
+            <div className="px-4 py-2.5 bg-steelies-navy rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-3">
+              <span className="flex items-center gap-2 text-white text-sm font-semibold">
+                <Star className="w-4 h-4 fill-[#00C8E8] text-[#00C8E8]" />
+                {favorites.size} artikel{favorites.size !== 1 ? 'en' : ''} geselecteerd
+              </span>
+              <div className="flex gap-2 ml-0 sm:ml-auto flex-wrap">
+                <button onClick={exportFavToExcel} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00C8E8] text-steelies-navy font-semibold text-xs rounded-lg hover:bg-[#00aecb] transition-colors">
+                  <TableIcon className="w-3.5 h-3.5" /> Selectie Excel
+                </button>
+                <button onClick={exportFavToPDF} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 text-white font-semibold text-xs rounded-lg hover:bg-white/20 transition-colors border border-white/20">
+                  <FileDown className="w-3.5 h-3.5" /> Selectie PDF
+                </button>
+                <button onClick={() => setFavorites(new Set())} className="flex items-center gap-1.5 px-3 py-1.5 text-white/60 hover:text-white text-xs transition-colors">
+                  <Trash2 className="w-3.5 h-3.5" /> Wis selectie
+                </button>
+              </div>
+            </div>
+          )}
+
         </div>
+      </div>
+
+      {/* ── Table + pagination ── */}
+      <div className="px-4 sm:px-6 py-6">
+        <div className="max-w-5xl mx-auto">
 
         {/* Export warning */}
         {exportWarning && (
@@ -332,27 +363,6 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
             <span className="font-semibold shrink-0">Let op:</span>
             <span>{exportWarning}</span>
             <button onClick={() => setExportWarning('')} className="ml-auto shrink-0 text-amber-600 hover:text-amber-900">✕</button>
-          </div>
-        )}
-
-        {/* Favourites bar */}
-        {favorites.size > 0 && (
-          <div className="mb-3 px-4 py-3 bg-steelies-navy rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <span className="flex items-center gap-2 text-white text-sm font-semibold">
-              <Star className="w-4 h-4 fill-[#00C8E8] text-[#00C8E8]" />
-              {favorites.size} artikel{favorites.size !== 1 ? 'en' : ''} geselecteerd
-            </span>
-            <div className="flex gap-2 ml-0 sm:ml-auto flex-wrap">
-              <button onClick={exportFavToExcel} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00C8E8] text-steelies-navy font-semibold text-xs rounded-lg hover:bg-[#00aecb] transition-colors">
-                <TableIcon className="w-3.5 h-3.5" /> Selectie Excel
-              </button>
-              <button onClick={exportFavToPDF} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 text-white font-semibold text-xs rounded-lg hover:bg-white/20 transition-colors border border-white/20">
-                <FileDown className="w-3.5 h-3.5" /> Selectie PDF
-              </button>
-              <button onClick={() => setFavorites(new Set())} className="flex items-center gap-1.5 px-3 py-1.5 text-white/60 hover:text-white text-xs transition-colors">
-                <Trash2 className="w-3.5 h-3.5" /> Wis selectie
-              </button>
-            </div>
           </div>
         )}
 
@@ -452,6 +462,7 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
           </div>
         </div>
 
+        </div>
       </div>
     </section>
   )
