@@ -11,10 +11,14 @@
     --ring: 223 65% 15%;
     --primary: 223 65% 15%;
     --primary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 223 65% 15%;
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
     --accent: 222 20% 92%;
     --accent-foreground: 223 65% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
   }
 }
 

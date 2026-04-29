@@ -9,14 +9,14 @@ const timeline = [
     title: 'Oprichting',
     description:
       'A.S.F. Fischer BV wordt opgericht. De basis wordt gelegd voor wat uitgroeit tot een toonaangevende leverancier van bevestigingsmiddelen.',
-    image: null,
+    image: '/fischer-bestelwagen.png',
   },
   {
     year: '1970',
     title: 'Verhuizing naar Lelystad',
     description:
       'Het bedrijf verhuist naar Lelystad, waar het verder kan groeien en uitbreiden. Een nieuwe fase breekt aan.',
-    image: null,
+    image: '/fischer-lelystad.png',
   },
   {
     year: '1976',
