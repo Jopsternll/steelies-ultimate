@@ -23,7 +23,7 @@ const timeline = [
     title: 'Uitbreiding gebouwen',
     description:
       'De groeiende vraag vraagt om meer ruimte. De bedrijfsgebouwen in Lelystad worden uitgebreid om aan de toenemende vraag te voldoen.',
-    image: null,
+    image: '/magazijn.png',
   },
   {
     year: 'Heden',
