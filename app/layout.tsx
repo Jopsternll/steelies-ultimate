@@ -65,7 +65,6 @@ export default function RootLayout({
               email: 'info@asf-fischer.nl',
               sameAs: [
                 'https://www.asf-fischer.nl',
-                'https://webshop.asf-fischer.com/nl/merk/steelies_ultimate',
               ],
             }),
           }}

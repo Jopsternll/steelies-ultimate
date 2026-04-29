@@ -68,14 +68,6 @@ export function Header() {
 							{link.label}
 						</a>
 					))}
-					<a
-						href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
-						target="_blank"
-						rel="noopener noreferrer"
-						className={buttonVariants({ variant: 'ghost' })}
-					>
-						Webshop
-					</a>
 				</div>
 
 				{/* Mobile toggle */}
@@ -114,16 +106,6 @@ export function Header() {
 								{link.label}
 							</a>
 						))}
-					</div>
-					<div className="flex flex-col gap-2">
-						<a
-							href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
-							target="_blank"
-							rel="noopener noreferrer"
-							className={buttonVariants({ variant: 'ghost', className: 'justify-start' })}
-						>
-							Webshop
-						</a>
 					</div>
 				</div>
 			</div>

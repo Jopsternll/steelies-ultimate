@@ -69,16 +69,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  webshop.asf-fischer.com
-                </a>
-              </li>
-              <li>
                 <a href="#segmenten" className="hover:text-white transition-colors">
                   Onze segmenten
                 </a>

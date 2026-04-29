@@ -199,15 +199,13 @@ export default function SegmentenPage() {
           Klaar om te bestellen?
         </h2>
         <p className="text-gray-300 mb-8 max-w-md mx-auto">
-          Bekijk het volledige Steelies Ultimate assortiment in onze webshop.
+          Neem contact op met ons team voor meer informatie over het assortiment.
         </p>
         <a
-          href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/#contact"
           className="inline-block px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200"
         >
-          Naar de Webshop
+          Neem contact op
         </a>
       </section>
     </main>

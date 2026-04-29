@@ -135,14 +135,6 @@ export default function OverOnsPage() {
           >
             Bekijk Segmenten
           </a>
-          <a
-            href="https://webshop.asf-fischer.com/nl/merk/steelies_ultimate"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3 border-2 border-[#00C8E8] text-[#00C8E8] font-semibold rounded-lg hover:bg-[#00C8E8] hover:text-steelies-navy transition-colors duration-200"
-          >
-            Naar de Webshop
-          </a>
         </div>
       </section>
     </main>
