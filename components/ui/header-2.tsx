@@ -13,6 +13,7 @@ export function Header() {
 
 	const links = [
 		{ label: 'Segmenten', href: '/segmenten' },
+		{ label: 'Assortiment', href: '/assortiment' },
 		{ label: 'Schappenplan', href: '/schappenplan' },
 		{ label: 'Over ons', href: '/over-ons' },
 		{ label: 'Contact', href: '/#contact' },

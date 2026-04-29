@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: 'https://steelies-ultimate.nl/assortiment',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: 'https://steelies-ultimate.nl/segmenten',
       lastModified: new Date(),
       changeFrequency: 'monthly',

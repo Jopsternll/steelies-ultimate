@@ -14,12 +14,15 @@
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^11.3.0",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.7",
     "lucide-react": "^0.441.0",
     "motion": "^11.3.0",
     "next": "^15.3.1",
     "react": "^19",
     "react-dom": "^19",
-    "tailwind-merge": "^2.5.2"
+    "tailwind-merge": "^2.5.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1",

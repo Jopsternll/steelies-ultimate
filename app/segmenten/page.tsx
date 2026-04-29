@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
@@ -201,12 +202,12 @@ export default function SegmentenPage() {
         <p className="text-gray-300 mb-8 max-w-md mx-auto">
           Neem contact op met ons team voor meer informatie over het assortiment.
         </p>
-        <a
+        <Link
           href="/#contact"
           className="inline-block px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200"
         >
           Neem contact op
-        </a>
+        </Link>
       </section>
     </main>
   )
