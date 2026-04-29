@@ -5,11 +5,9 @@ import Link from 'next/link';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
-import { useScroll } from '@/components/ui/use-scroll';
 
 export function Header() {
 	const [open, setOpen] = React.useState(false);
-	const scrolled = useScroll(10);
 
 	const links = [
 		{ label: 'Segmenten', href: '/segmenten' },
@@ -31,12 +29,7 @@ export function Header() {
 	}, [open]);
 
 	return (
-		<header
-			className={cn(
-				'sticky top-0 z-50 w-full border-b border-border bg-background/95 supports-[backdrop-filter]:bg-background/60 backdrop-blur-lg',
-				{ 'bg-background/95': open },
-			)}
-		>
+		<header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 supports-[backdrop-filter]:bg-background/60 backdrop-blur-lg">
 			<nav className="flex h-14 w-full max-w-5xl mx-auto items-center justify-between px-4">
 				{/* Logo */}
 				<Link href="/" className="relative h-8 w-32 shrink-0">
