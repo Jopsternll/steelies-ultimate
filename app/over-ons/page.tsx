@@ -30,7 +30,7 @@ const timeline = [
     title: 'Rebranding: FIS wordt Steelies',
     description:
       'Na jarenlange ervaring onder de naam FIS introduceert A.S.F. Fischer BV het merk Steelies Ultimate — een frisse, herkenbare identiteit voor het volledige bevestigingsmiddelenassortiment.',
-    image: null,
+    image: '/Doos metrisch.png',
   },
 ]
 
