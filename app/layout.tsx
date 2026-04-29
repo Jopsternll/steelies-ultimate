@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/ui/header-2'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -70,6 +71,7 @@ export default function RootLayout({
           }}
         />
         <Header />
+        <Breadcrumbs />
         {children}
         <Footer />
       </body>
