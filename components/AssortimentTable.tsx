@@ -22,10 +22,24 @@ type SortDir = 'asc' | 'desc'
 async function getLogoBase64(): Promise<string> {
   const res = await fetch('/Steelies_logo_pantone.png')
   const blob = await res.blob()
-  return new Promise(resolve => {
-    const reader = new FileReader()
-    reader.onloadend = () => resolve(reader.result as string)
-    reader.readAsDataURL(blob)
+  const blobUrl = URL.createObjectURL(blob)
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.onload = () => {
+      const canvas = document.createElement('canvas')
+      canvas.width = img.width
+      canvas.height = img.height
+      const ctx = canvas.getContext('2d')!
+      ctx.drawImage(img, 0, 0)
+      // Replace all non-transparent pixels with white
+      ctx.globalCompositeOperation = 'source-in'
+      ctx.fillStyle = 'white'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      URL.revokeObjectURL(blobUrl)
+      resolve(canvas.toDataURL('image/png'))
+    }
+    img.onerror = reject
+    img.src = blobUrl
   })
 }
 
