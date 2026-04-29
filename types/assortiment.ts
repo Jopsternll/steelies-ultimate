@@ -5,5 +5,6 @@ export interface Product {
   ean: string
   omschrijving: string
   verpakking: number
+  oververpakking: number
   segment: Segment
 }

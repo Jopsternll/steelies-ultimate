@@ -48,10 +48,11 @@ for (const row of rows) {
     .replace(/\s+/g, ' ')
     .trim()
   const verpakking = Number(row[4]) || 0
+  const oververpakking = Number(row[5]) || 0
 
   if (!artikelnummer || !omschrijving) continue
 
-  products.push({ artikelnummer, ean, omschrijving, verpakking, segment: currentSegment })
+  products.push({ artikelnummer, ean, omschrijving, verpakking, oververpakking, segment: currentSegment })
   counts[currentSegment] = (counts[currentSegment] || 0) + 1
 }
 

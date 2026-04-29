@@ -46,6 +46,7 @@ async function getLogoBase64(): Promise<string> {
 async function buildPDF(
   rows: Product[],
   showVerpakking: boolean,
+  showOvv: boolean,
   showEAN: boolean,
   label: string,
 ) {
@@ -75,6 +76,7 @@ async function buildPDF(
 
   const cols: string[] = ['', 'Artikelnummer', 'Omschrijving']
   if (showVerpakking) cols.push('Verpakking')
+  if (showOvv) cols.push('Overdoos')
   if (showEAN) cols.push('EAN')
 
   autoTable(doc, {
@@ -83,6 +85,7 @@ async function buildPDF(
     body: rows.map(p => {
       const row = ['', p.artikelnummer, p.omschrijving]
       if (showVerpakking) row.push(String(p.verpakking > 0 ? p.verpakking : ''))
+      if (showOvv) row.push(String(p.oververpakking > 0 ? p.oververpakking : ''))
       if (showEAN) row.push(p.ean)
       return row
     }),
@@ -130,6 +133,7 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
   const [page, setPage] = useState(1)
   const [showEAN, setShowEAN] = useState(true)
   const [showVerpakking, setShowVerpakking] = useState(true)
+  const [showOvv, setShowOvv] = useState(true)
   const [colMenuOpen, setColMenuOpen] = useState(false)
   const [exportWarning, setExportWarning] = useState('')
   const [favorites, setFavorites] = useState<Set<string>>(new Set())
@@ -211,7 +215,7 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
       return
     }
     setExportWarning('')
-    await buildPDF(sortedProducts, showVerpakking, showEAN, 'Assortiment')
+    await buildPDF(sortedProducts, showVerpakking, showOvv, showEAN, 'Assortiment')
   }
 
   async function exportAllToExcel() {
@@ -219,43 +223,47 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
     const XLSX = await import('xlsx')
     const headers = ['Segment', 'Artikelnummer', 'Omschrijving']
     if (showVerpakking) headers.push('Verpakking')
+    if (showOvv) headers.push('Overdoos')
     if (showEAN) headers.push('EAN')
     const data = [headers, ...sortedProducts.map(p => {
       const row = [segmentMeta[p.segment]?.label ?? p.segment, p.artikelnummer, p.omschrijving]
       if (showVerpakking) row.push(String(p.verpakking > 0 ? p.verpakking : ''))
+      if (showOvv) row.push(String(p.oververpakking > 0 ? p.oververpakking : ''))
       if (showEAN) row.push(p.ean)
       return row
     })]
     const ws = XLSX.utils.aoa_to_sheet(data)
-    ws['!cols'] = [{ wch: 28 }, { wch: 16 }, { wch: 80 }, { wch: 12 }, { wch: 16 }]
+    ws['!cols'] = [{ wch: 28 }, { wch: 16 }, { wch: 80 }, { wch: 12 }, { wch: 10 }, { wch: 16 }]
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, ws, 'Assortiment')
     XLSX.writeFile(wb, `steelies-assortiment-${Date.now()}.xlsx`)
   }
 
   async function exportFavToPDF() {
-    await buildPDF(favoriteProducts, showVerpakking, showEAN, 'Favorieten')
+    await buildPDF(favoriteProducts, showVerpakking, showOvv, showEAN, 'Favorieten')
   }
 
   async function exportFavToExcel() {
     const XLSX = await import('xlsx')
     const headers = ['Segment', 'Artikelnummer', 'Omschrijving']
     if (showVerpakking) headers.push('Verpakking')
+    if (showOvv) headers.push('Overdoos')
     if (showEAN) headers.push('EAN')
     const data = [headers, ...favoriteProducts.map(p => {
       const row = [segmentMeta[p.segment]?.label ?? p.segment, p.artikelnummer, p.omschrijving]
       if (showVerpakking) row.push(String(p.verpakking > 0 ? p.verpakking : ''))
+      if (showOvv) row.push(String(p.oververpakking > 0 ? p.oververpakking : ''))
       if (showEAN) row.push(p.ean)
       return row
     })]
     const ws = XLSX.utils.aoa_to_sheet(data)
-    ws['!cols'] = [{ wch: 28 }, { wch: 16 }, { wch: 80 }, { wch: 12 }, { wch: 16 }]
+    ws['!cols'] = [{ wch: 28 }, { wch: 16 }, { wch: 80 }, { wch: 12 }, { wch: 10 }, { wch: 16 }]
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, ws, 'Favorieten')
     XLSX.writeFile(wb, `steelies-favorieten-${Date.now()}.xlsx`)
   }
 
-  const totalCols = 2 + 1 + 1 + (showVerpakking ? 1 : 0) + (showEAN ? 1 : 0) // checkbox + segment + art + omschr + ...
+  const totalCols = 2 + 1 + 1 + (showVerpakking ? 1 : 0) + (showOvv ? 1 : 0) + (showEAN ? 1 : 0)
 
   return (
     <section className="bg-white">
@@ -319,6 +327,10 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
                   <label className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-50 cursor-pointer text-sm">
                     <input type="checkbox" checked={showVerpakking} onChange={e => setShowVerpakking(e.target.checked)} className="accent-steelies-navy" />
                     Verpakking
+                  </label>
+                  <label className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-50 cursor-pointer text-sm">
+                    <input type="checkbox" checked={showOvv} onChange={e => setShowOvv(e.target.checked)} className="accent-steelies-navy" />
+                    Overdoos
                   </label>
                   <label className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-50 cursor-pointer text-sm">
                     <input type="checkbox" checked={showEAN} onChange={e => setShowEAN(e.target.checked)} className="accent-steelies-navy" />
@@ -393,6 +405,9 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
                 {showVerpakking && (
                   <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide whitespace-nowrap">Verpakking</th>
                 )}
+                {showOvv && (
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide whitespace-nowrap">Overdoos</th>
+                )}
                 {showEAN && (
                   <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">EAN</th>
                 )}
@@ -434,6 +449,11 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
                       {showVerpakking && (
                         <td className="px-4 py-2.5 text-gray-600 whitespace-nowrap">
                           {p.verpakking > 0 ? p.verpakking : '—'}
+                        </td>
+                      )}
+                      {showOvv && (
+                        <td className="px-4 py-2.5 text-gray-600 whitespace-nowrap">
+                          {p.oververpakking > 0 ? p.oververpakking : '—'}
                         </td>
                       )}
                       {showEAN && (
