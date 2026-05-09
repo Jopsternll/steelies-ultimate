@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from 'react'
 import { Search, ChevronUp, ChevronDown, ChevronsUpDown, FileDown, TableIcon, Star, Trash2, Download } from 'lucide-react'
+import { GlassButton } from '@/components/ui/glass-button'
 import type { Product, Segment } from '@/types/assortiment'
 
 const PAGE_SIZE = 50
@@ -285,19 +286,30 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
               />
             </div>
             <div className="flex gap-2 flex-shrink-0 flex-wrap">
-              <button onClick={exportAllToExcel} className="flex items-center gap-1.5 px-4 py-2 bg-[#00C8E8] text-steelies-navy font-semibold text-sm rounded-lg hover:bg-[#00aecb] transition-colors duration-200">
+              <GlassButton
+                size="sm"
+                onClick={exportAllToExcel}
+                className="bg-gray-400"
+                contentClassName="flex items-center gap-1.5 text-white font-semibold"
+              >
                 <TableIcon className="w-4 h-4" /> Excel
-              </button>
-              <a
-                href="/Assortiment Steelies Ultimate.xlsx"
-                download
-                className="flex items-center gap-1.5 px-4 py-2 bg-emerald-600 text-white font-semibold text-sm rounded-lg hover:bg-emerald-700 transition-colors duration-200"
+              </GlassButton>
+              <GlassButton
+                size="sm"
+                onClick={() => { const a = document.createElement('a'); a.href = '/Assortiment Steelies Ultimate.xlsx'; a.download = ''; a.click() }}
+                className="bg-gray-400"
+                contentClassName="flex items-center gap-1.5 text-white font-semibold"
               >
                 <Download className="w-4 h-4" /> Download assortiment
-              </a>
-              <button onClick={exportAllToPDF} className="flex items-center gap-1.5 px-4 py-2 bg-steelies-navy text-white font-semibold text-sm rounded-lg hover:bg-[#1A2F5A] transition-colors duration-200">
+              </GlassButton>
+              <GlassButton
+                size="sm"
+                onClick={exportAllToPDF}
+                className="bg-gray-400"
+                contentClassName="flex items-center gap-1.5 text-white font-semibold"
+              >
                 <FileDown className="w-4 h-4" /> PDF
-              </button>
+              </GlassButton>
             </div>
           </div>
 

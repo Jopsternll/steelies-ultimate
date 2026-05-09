@@ -13,7 +13,11 @@ export default function HeroSection() {
         className="relative z-10 flex flex-col items-center justify-center gap-6 px-6 text-center max-w-4xl mx-auto"
       >
         {/* Logo */}
-        <div className="relative w-72 h-28 sm:w-96 sm:h-36">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="relative w-72 h-28 sm:w-96 sm:h-36 cursor-pointer"
+          aria-label="Naar bovenkant"
+        >
           <Image
             src="/Steelies_logo_pantone.png"
             alt="Steelies Ultimate"
@@ -21,7 +25,7 @@ export default function HeroSection() {
             className="object-contain"
             priority
           />
-        </div>
+        </button>
 
         {/* Blue divider */}
         <div className="h-1 w-24 bg-steelies-blue rounded-full" />

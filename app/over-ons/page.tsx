@@ -30,7 +30,7 @@ const timeline = [
     title: 'Uitbreiding assortiment',
     description:
       'Het productaanbod wordt verder uitgebreid. Steeds meer bevestigingsmiddelen worden toegevoegd aan het assortiment om aan de groeiende vraag van de markt te voldoen.',
-    image: '/7504k.png',
+    image: '/7504k.jpg',
   },
   {
     year: 'Heden',
@@ -129,6 +129,94 @@ export default function OverOnsPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-steelies-light py-16 px-6">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: 'Hoeveel producten heeft Steelies Ultimate?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Het Steelies Ultimate assortiment bestaat uit 8.043 artikelen, verdeeld over 5 kleurgecodeerde segmenten: Metrisch Schroefdraad (5.875), Houtdraad (1.337), Parkers & Gipsplaatschroeven (346), Nagels & Klein Ijzerwaren (314) en Verankeringen (171).' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Welke segmenten biedt Steelies Ultimate aan?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Steelies Ultimate heeft 5 kleurgecodeerde segmenten: Verankeringen (paars), Parkers & Gipsplaatschroeven (blauw), Houtdraad (geel), Metrisch Schroefdraad (rood) en Nagels & Klein Ijzerwaren (oranje). Elk segment heeft een eigen kleurcode zodat u in de vakwinkel direct het juiste product vindt.' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Hoe lang bestaat A.S.F. Fischer BV al?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'A.S.F. Fischer BV is opgericht in 1945 en heeft daarmee meer dan 80 jaar ervaring in de levering van bevestigingsmiddelen aan de professionele vakhandel.' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Waar is A.S.F. Fischer BV gevestigd?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'A.S.F. Fischer BV is gevestigd aan de Zilverstraat 1, 8211 AN Lelystad. U kunt ons bereiken via +31 (0)320 285 610 of info@asf-fischer.nl.' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Hoe vraag ik een schappenplan aan?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Een schappenplan kunt u aanvragen via de pagina Schappenplan op onze website. Vul het contactformulier in met uw bedrijfsgegevens en wij nemen contact met u op.' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Is het assortiment online doorzoekbaar?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Ja, het volledige Steelies Ultimate assortiment van 8.043 artikelen is online doorzoekbaar via de assortimentspagina. U kunt filteren op segment en zoeken op artikelnummer of omschrijving.' },
+                },
+              ],
+            }),
+          }}
+        />
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-[#00C8E8] font-semibold uppercase tracking-widest text-sm mb-2">Veelgestelde vragen</p>
+            <h2 className="text-3xl font-black text-steelies-dark uppercase tracking-wide mb-4">FAQ</h2>
+            <div className="h-1 w-16 bg-[#00C8E8] mx-auto" />
+          </div>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'Hoeveel producten heeft Steelies Ultimate?',
+                a: '8.043 artikelen verdeeld over 5 segmenten: Metrisch (5.875), Houtdraad (1.337), Parkers (346), Nagels (314) en Verankeringen (171).',
+              },
+              {
+                q: 'Welke segmenten zijn er?',
+                a: '5 kleurgecodeerde segmenten: Verankeringen (paars), Parkers & Gipsplaatschroeven (blauw), Houtdraad (geel), Metrisch Schroefdraad (rood) en Nagels & Klein Ijzerwaren (oranje).',
+              },
+              {
+                q: 'Hoe lang bestaat A.S.F. Fischer BV al?',
+                a: 'Opgericht in 1945 — meer dan 80 jaar ervaring in bevestigingsmiddelen voor de professionele vakhandel.',
+              },
+              {
+                q: 'Waar is A.S.F. Fischer BV gevestigd?',
+                a: 'Zilverstraat 1, 8211 AN Lelystad. Bereikbaar via +31 (0)320 285 610 of info@asf-fischer.nl.',
+              },
+              {
+                q: 'Hoe vraag ik een schappenplan aan?',
+                a: 'Via de pagina Schappenplan op deze website. Vul het formulier in en wij nemen contact op.',
+              },
+              {
+                q: 'Is het assortiment online doorzoekbaar?',
+                a: 'Ja, alle 8.043 artikelen zijn doorzoekbaar op artikelnummer en omschrijving, met filter op segment.',
+              },
+            ].map(({ q, a }) => (
+              <details key={q} className="bg-white rounded-xl shadow-sm border border-gray-100 group">
+                <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-steelies-dark list-none">
+                  {q}
+                  <span className="ml-4 shrink-0 text-[#00C8E8] text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <p className="px-6 pb-4 text-gray-600 text-sm leading-relaxed">{a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

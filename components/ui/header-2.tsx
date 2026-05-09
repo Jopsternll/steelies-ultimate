@@ -32,7 +32,11 @@ export function Header() {
 		<header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 supports-[backdrop-filter]:bg-background/60 backdrop-blur-lg">
 			<nav className="flex h-14 w-full max-w-5xl mx-auto items-center justify-between px-4">
 				{/* Logo */}
-				<Link href="/" className="relative h-10 w-40 shrink-0">
+				<Link
+					href="/"
+					className="relative h-10 w-40 shrink-0"
+					onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+				>
 					<Image
 						src="/Steelies_logo_pantone.png"
 						alt="Steelies Ultimate"
@@ -56,44 +60,32 @@ export function Header() {
 				</div>
 
 				{/* Mobile toggle */}
-				<Button
-					size="icon"
-					variant="outline"
+				<button
+					type="button"
 					onClick={() => setOpen(!open)}
-					className="md:hidden"
+					className="md:hidden flex items-center justify-center h-10 w-10 rounded-md border border-input bg-background"
+					aria-label="Menu openen"
 				>
 					<MenuToggleIcon open={open} className="size-5" duration={300} />
-				</Button>
+				</button>
 			</nav>
 
-			{/* Mobile menu */}
-			<div
-				className={cn(
-					'bg-background/95 fixed top-14 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y md:hidden',
-					open ? 'block' : 'hidden',
-				)}
-			>
-				<div
-					data-slot={open ? 'open' : 'closed'}
-					className={cn(
-						'data-[slot=open]:animate-in data-[slot=open]:zoom-in-95 data-[slot=closed]:animate-out data-[slot=closed]:zoom-out-95 ease-out',
-						'flex h-full w-full flex-col justify-between gap-y-2 p-4',
-					)}
-				>
-					<div className="grid gap-y-2">
-						{links.map((link) => (
-							<a
-								key={link.label}
-								className={buttonVariants({ variant: 'ghost', className: 'justify-start' })}
-								href={link.href}
-								onClick={() => setOpen(false)}
-							>
-								{link.label}
-							</a>
-						))}
-					</div>
+			{/* Mobile menu overlay */}
+			{open && (
+				<div className="fixed inset-0 top-14 z-50 bg-white flex flex-col p-6 gap-3 md:hidden">
+					{links.filter(link => link.label !== 'Assortiment').map((link) => (
+						<a
+							key={link.label}
+							href={link.href}
+							onClick={() => setOpen(false)}
+							className="text-lg font-medium text-steelies-dark hover:text-[#00C8E8] transition-colors py-2 border-b border-gray-100"
+						>
+							{link.label}
+						</a>
+					))}
 				</div>
-			</div>
+			)}
+
 		</header>
 	);
 }

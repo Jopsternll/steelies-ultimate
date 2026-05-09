@@ -25,7 +25,7 @@ export default function AssortimentPage() {
           A.S.F. Fischer BV
         </p>
         <h1 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-wide mb-4">
-          Assortiment
+          Steelies Assortiment
         </h1>
         <div className="h-1 w-16 bg-[#00C8E8] mx-auto mb-6" />
         <p className="text-gray-300 max-w-xl mx-auto text-lg">
