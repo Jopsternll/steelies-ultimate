@@ -165,8 +165,8 @@ function Card({ item, isActive }: { item: typeof timeline[number]; isActive: boo
             fill
             className="object-contain p-4"
             style={{
-              filter: isActive ? 'blur(0px)' : 'blur(6px)',
-              opacity: isActive ? 1 : 0.35,
+              filter: isActive ? 'blur(0px)' : 'blur(4px)',
+              opacity: isActive ? 1 : 0.55,
               transition: 'filter 0.7s ease, opacity 0.7s ease',
             }}
           />
