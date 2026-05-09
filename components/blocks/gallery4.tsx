@@ -39,7 +39,7 @@ const Gallery4 = ({
   return (
     <section className="py-16 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="mb-8 flex flex-col gap-3 md:mb-12">
+        <div className="mb-8 flex flex-col items-center gap-3 text-center md:mb-12">
           <h2 className="text-3xl font-medium md:text-4xl">{title}</h2>
           <p className="max-w-lg text-muted-foreground">{description}</p>
         </div>
