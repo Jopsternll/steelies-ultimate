@@ -12,7 +12,7 @@ const BUBBLES = [
 
 export default function BubbleTransition() {
   return (
-    <div className="relative h-44 bg-white overflow-hidden">
+    <div className="relative h-24 bg-white overflow-hidden">
       {BUBBLES.map((b, i) => (
         <div
           key={i}
