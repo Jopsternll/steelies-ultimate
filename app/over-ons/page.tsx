@@ -41,6 +41,8 @@ const timeline = [
   },
 ]
 
+const ACTIVE_THRESHOLD = 0.15
+
 export default function OverOnsPage() {
   const timelineRef = useRef<HTMLDivElement>(null)
   const [dotProgress, setDotProgress] = useState(0)
@@ -92,23 +94,26 @@ export default function OverOnsPage() {
             />
 
             {/* Entries */}
-            {timeline.map((item, i) => (
-              <div key={item.year} className="relative flex items-start mb-20 last:mb-0">
+            {timeline.map((item, i) => {
+              const cardPosition = i / (timeline.length - 1)
+              const isActive = Math.abs(dotProgress - cardPosition) < ACTIVE_THRESHOLD
+              return (
+                <div key={item.year} className="relative flex items-start mb-20 last:mb-0">
+                  {/* Left side */}
+                  <div className="w-1/2 pr-14">
+                    {i % 2 === 0 && <Card item={item} isActive={isActive} />}
+                  </div>
 
-                {/* Left side */}
-                <div className="w-1/2 pr-14">
-                  {i % 2 === 0 && <Card item={item} />}
+                  {/* Center dot */}
+                  <div className="absolute left-1/2 top-8 -translate-x-1/2 w-3 h-3 rounded-full bg-white border-2 border-gray-300 z-10" />
+
+                  {/* Right side */}
+                  <div className="w-1/2 pl-14">
+                    {i % 2 !== 0 && <Card item={item} isActive={isActive} />}
+                  </div>
                 </div>
-
-                {/* Center dot */}
-                <div className="absolute left-1/2 top-8 -translate-x-1/2 w-3 h-3 rounded-full bg-white border-2 border-gray-300 z-10" />
-
-                {/* Right side */}
-                <div className="w-1/2 pl-14">
-                  {i % 2 !== 0 && <Card item={item} />}
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           {/* Mobile timeline */}
@@ -118,7 +123,7 @@ export default function OverOnsPage() {
               {timeline.map((item) => (
                 <div key={item.year} className="relative">
                   <div className="absolute -left-5 top-8 w-3 h-3 rounded-full bg-[#00C8E8] border-2 border-white shadow" />
-                  <Card item={item} />
+                  <Card item={item} isActive={true} />
                 </div>
               ))}
             </div>
@@ -148,13 +153,23 @@ export default function OverOnsPage() {
   )
 }
 
-function Card({ item }: { item: typeof timeline[number] }) {
+function Card({ item, isActive }: { item: typeof timeline[number]; isActive: boolean }) {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-200">
       {/* Image area */}
-      <div className="relative h-44 bg-steelies-light flex items-center justify-center">
+      <div className="relative h-44 bg-steelies-light flex items-center justify-center overflow-hidden">
         {item.image ? (
-          <Image src={item.image} alt={item.title} fill className="object-contain p-4" />
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-contain p-4"
+            style={{
+              filter: isActive ? 'blur(0px)' : 'blur(6px)',
+              opacity: isActive ? 1 : 0.35,
+              transition: 'filter 0.7s ease, opacity 0.7s ease',
+            }}
+          />
         ) : (
           <div className="flex flex-col items-center gap-2 text-gray-300">
             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,7 +179,7 @@ function Card({ item }: { item: typeof timeline[number] }) {
             <span className="text-xs">Afbeelding volgt</span>
           </div>
         )}
-        <div className="absolute top-3 left-3 bg-steelies-navy text-[#00C8E8] font-black text-base px-3 py-1 rounded-lg">
+        <div className="absolute top-3 left-3 bg-steelies-navy text-[#00C8E8] font-black text-base px-3 py-1 rounded-lg z-10">
           {item.year}
         </div>
       </div>
