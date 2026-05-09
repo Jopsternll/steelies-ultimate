@@ -53,7 +53,7 @@ export default function AboutSection() {
   const { ref: gridRef, inView: gridInView } = useInView(0.1)
 
   return (
-    <section className="bg-steelies-light py-10 px-6">
+    <section className="relative bg-steelies-light py-10 px-6 [box-shadow:0_8px_24px_-4px_rgba(0,0,0,0.12)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div
