@@ -3,30 +3,31 @@
 import { useEffect, useRef, useState } from 'react'
 
 const stats = [
-  { value: 80, suffix: '+ jaar', label: 'Ervaring', raw: false },
-  { value: 8043, suffix: '', label: 'Artikelen', raw: false },
-  { value: 5, suffix: '', label: 'Segmenten', raw: false },
-  { value: 1945, suffix: '', label: 'Opgericht', raw: true },
+  { value: 80, suffix: '+ jaar', label: 'Ervaring', raw: false, from: 0 },
+  { value: 8043, suffix: '', label: 'Artikelen', raw: false, from: 0 },
+  { value: 5, suffix: '', label: 'Segmenten', raw: false, from: 0 },
+  { value: 1945, suffix: '', label: 'Opgericht', raw: true, from: 1900 },
 ]
 
-function useCountUp(target: number, inView: boolean, duration = 1200) {
-  const [count, setCount] = useState(0)
+function useCountUp(target: number, inView: boolean, duration = 1200, from = 0) {
+  const [count, setCount] = useState(from)
   useEffect(() => {
     if (!inView) return
     const start = performance.now()
+    const range = target - from
     const step = (now: number) => {
       const progress = Math.min((now - start) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.floor(eased * target))
+      setCount(Math.floor(from + eased * range))
       if (progress < 1) requestAnimationFrame(step)
     }
     requestAnimationFrame(step)
-  }, [inView, target, duration])
+  }, [inView, target, from, duration])
   return count
 }
 
-function StatItem({ value, suffix, label, raw, inView }: typeof stats[0] & { inView: boolean }) {
-  const count = useCountUp(value, inView)
+function StatItem({ value, suffix, label, raw, from, inView }: typeof stats[0] & { inView: boolean }) {
+  const count = useCountUp(value, inView, 1200, from)
   return (
     <div className="flex flex-col items-center gap-1">
       <span className="text-3xl sm:text-4xl font-black text-steelies-dark tabular-nums">
