@@ -14,6 +14,7 @@ export function Header() {
 		{ label: 'Assortiment', href: '/assortiment' },
 		{ label: 'Schappenplan', href: '/schappenplan' },
 		{ label: 'Over ons', href: '/over-ons' },
+		{ label: 'FAQ', href: '/faq' },
 		{ label: 'Contact', href: '/#contact' },
 	];
 
