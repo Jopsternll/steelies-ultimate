@@ -61,31 +61,32 @@ export default function AboutSection() {
           className="text-center mb-14"
         >
           <p
-            className={`text-steelies-blue font-semibold uppercase tracking-widest text-sm mb-2 transition-all duration-500 ${
-              headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`text-steelies-blue font-semibold uppercase tracking-widest text-sm mb-2 transition-all duration-700 ${
+              headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
+            style={{ transitionDelay: headerInView ? '0ms' : '0ms' }}
           >
             Over Steelies Ultimate
           </p>
           <h2
-            className={`text-3xl sm:text-4xl font-black text-steelies-dark uppercase tracking-wide mb-4 transition-all duration-600 delay-100 ${
-              headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`text-3xl sm:text-4xl font-black text-steelies-dark uppercase tracking-wide mb-4 transition-all duration-700 ${
+              headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
-            style={{ transitionDelay: headerInView ? '100ms' : '0ms' }}
+            style={{ transitionDelay: headerInView ? '150ms' : '0ms' }}
           >
             Kwaliteit die verbindt
           </h2>
           <div
-            className={`h-1 w-16 bg-steelies-blue mx-auto mb-6 transition-all duration-500 ${
+            className={`h-1 w-16 bg-steelies-blue mx-auto mb-6 transition-all duration-700 ${
               headerInView ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
             }`}
-            style={{ transitionDelay: headerInView ? '200ms' : '0ms', transformOrigin: 'center' }}
+            style={{ transitionDelay: headerInView ? '300ms' : '0ms', transformOrigin: 'center' }}
           />
           <p
-            className={`text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed transition-all duration-600 ${
-              headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed transition-all duration-700 ${
+              headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
-            style={{ transitionDelay: headerInView ? '300ms' : '0ms' }}
+            style={{ transitionDelay: headerInView ? '450ms' : '0ms' }}
           >
             Steelies Ultimate is het bevestigingsmiddelen merk van{' '}
             <strong>A.S.F. Fischer BV</strong> uit Lelystad. Met een volledig,
