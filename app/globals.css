@@ -26,11 +26,3 @@ html {
   scroll-behavior: smooth;
 }
 
-@keyframes rise {
-  0%   { transform: translateY(0)      translateX(0)     scale(0.9);  opacity: 0;    }
-  8%   { opacity: 1; }
-  30%  { transform: translateY(-110px) translateX(16px)  scale(1);    opacity: 0.9;  }
-  60%  { transform: translateY(-230px) translateX(-12px) scale(1.08); opacity: 0.75; }
-  85%  { opacity: 0.3; }
-  100% { transform: translateY(-370px) translateX(8px)   scale(1.18); opacity: 0;    }
-}

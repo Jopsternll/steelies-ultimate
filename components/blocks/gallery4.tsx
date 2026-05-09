@@ -1,12 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { useEffect, useRef, useState } from "react";
 
 export interface Gallery4Item {
   id: string;
@@ -27,27 +22,44 @@ const Gallery4 = ({
   description = "Discover how leading companies and developers are leveraging modern web technologies to build exceptional digital experiences.",
   items,
 }: Gallery4Props) => {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect() } },
+      { threshold: 0.1 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="py-16">
+    <section className="py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="mb-8 flex flex-col gap-3 md:mb-12">
           <h2 className="text-3xl font-medium md:text-4xl">{title}</h2>
           <p className="max-w-lg text-muted-foreground">{description}</p>
         </div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            breakpoints: {
-              "(max-width: 640px)": { dragFree: true },
-            },
-          }}
+        <div
+          ref={sectionRef}
+          className="flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0 lg:grid-cols-5"
         >
-          <CarouselContent className="-ml-3">
-            {items.map((item) => (
-              <CarouselItem
+          {items.map((item, i) => {
+            const slideFrom = i < 2 ? '-100px' : '100px'
+            return (
+              <div
                 key={item.id}
-                className="basis-1/2 pl-3 sm:basis-1/3 lg:basis-1/5"
+                className="shrink-0 w-[60vw] sm:w-auto"
+                style={{
+                  transitionDelay: inView ? `${i * 120}ms` : '0ms',
+                  transition: 'opacity 0.6s ease, transform 0.6s ease',
+                  opacity: inView ? 1 : 0,
+                  transform: inView ? 'translateX(0)' : `translateX(${slideFrom})`,
+                }}
               >
                 <a href={item.href} className="group block rounded-xl">
                   <div className="relative aspect-square w-full overflow-hidden rounded-xl">
@@ -68,10 +80,10 @@ const Gallery4 = ({
                     </div>
                   </div>
                 </a>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </section>
   );
