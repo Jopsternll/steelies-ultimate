@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from 'react'
 
 const stats = [
-  { value: 80, suffix: '+ jaar', label: 'Ervaring' },
-  { value: 8043, suffix: '', label: 'Artikelen' },
-  { value: 5, suffix: '', label: 'Segmenten' },
-  { value: 1945, suffix: '', label: 'Opgericht' },
+  { value: 80, suffix: '+ jaar', label: 'Ervaring', raw: false },
+  { value: 8043, suffix: '', label: 'Artikelen', raw: false },
+  { value: 5, suffix: '', label: 'Segmenten', raw: false },
+  { value: 1945, suffix: '', label: 'Opgericht', raw: true },
 ]
 
 function useCountUp(target: number, inView: boolean, duration = 1200) {
@@ -25,12 +25,12 @@ function useCountUp(target: number, inView: boolean, duration = 1200) {
   return count
 }
 
-function StatItem({ value, suffix, label, inView }: typeof stats[0] & { inView: boolean }) {
+function StatItem({ value, suffix, label, raw, inView }: typeof stats[0] & { inView: boolean }) {
   const count = useCountUp(value, inView)
   return (
     <div className="flex flex-col items-center gap-1">
       <span className="text-3xl sm:text-4xl font-black text-steelies-dark tabular-nums">
-        {count.toLocaleString('nl-NL')}{suffix}
+        {raw ? count : count.toLocaleString('nl-NL')}{suffix}
       </span>
       <span className="text-sm font-semibold text-gray-500 uppercase tracking-widest">{label}</span>
     </div>
