@@ -26,6 +26,13 @@ const timeline = [
     image: '/magazijn.png',
   },
   {
+    year: '1982',
+    title: 'Uitbreiding assortiment',
+    description:
+      'Het productaanbod wordt verder uitgebreid. Steeds meer bevestigingsmiddelen worden toegevoegd aan het assortiment om aan de groeiende vraag van de markt te voldoen.',
+    image: '/7504k.png',
+  },
+  {
     year: 'Heden',
     title: 'Rebranding: FIS wordt Steelies',
     description:
