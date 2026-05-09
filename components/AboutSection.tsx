@@ -96,15 +96,20 @@ export default function AboutSection() {
         </div>
 
         {/* Feature grid */}
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((f, i) => (
-            f.image ? (
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden">
+          {features.map((f, i) => {
+            const slideFrom = i < 2 ? '-80px' : '80px'
+            const cardStyle = {
+              transitionDelay: gridInView ? `${i * 100}ms` : '0ms',
+              transition: 'opacity 0.6s, transform 0.6s',
+              opacity: gridInView ? 1 : 0,
+              transform: gridInView ? 'translateX(0)' : `translateX(${slideFrom})`,
+            }
+            return f.image ? (
               <div
                 key={f.title}
-                className={`relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-500 min-h-[200px] ${
-                  gridInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: gridInView ? `${i * 100}ms` : '0ms' }}
+                className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-md min-h-[200px]"
+                style={cardStyle}
               >
                 <Image
                   src={f.image}
@@ -121,17 +126,15 @@ export default function AboutSection() {
             ) : (
               <div
                 key={f.title}
-                className={`bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-500 ${
-                  gridInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: gridInView ? `${i * 100}ms` : '0ms' }}
+                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md"
+                style={cardStyle}
               >
                 <div className="text-4xl mb-4" aria-hidden="true">{f.icon}</div>
                 <h3 className="font-bold text-steelies-dark text-lg mb-2">{f.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
               </div>
             )
-          ))}
+          })}
         </div>
       </div>
     </section>
