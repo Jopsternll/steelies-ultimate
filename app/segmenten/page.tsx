@@ -132,12 +132,12 @@ export default function SegmentenPage() {
       <h1 className="sr-only">Steelies Ultimate Segmenten</h1>
       {/* Quick nav */}
       <section className="sticky top-14 z-40 bg-white border-b border-gray-100 py-4 px-6">
-        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-3">
+        <div className="max-w-5xl mx-auto flex flex-nowrap justify-center gap-2 overflow-x-auto">
           {segments.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className={`${s.navBg} px-5 py-2 rounded-full text-white text-sm font-bold uppercase tracking-wide transition-colors duration-200`}
+              className={`${s.navBg} shrink-0 px-3 py-2 rounded-full text-white text-xs font-bold uppercase tracking-wide transition-colors duration-200 whitespace-nowrap`}
             >
               {s.title}
             </a>
