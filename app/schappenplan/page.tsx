@@ -19,7 +19,7 @@ export default function SchappenplanPage() {
       {/* Hero */}
       <section className="bg-steelies-navy py-20 px-6 text-center">
         <p className="text-[#00C8E8] font-semibold uppercase tracking-widest text-sm mb-3">
-          A.S.F. Fischer BV
+          Steelies Ultimate
         </p>
         <h1 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-wide mb-4">
           Schappenplan
