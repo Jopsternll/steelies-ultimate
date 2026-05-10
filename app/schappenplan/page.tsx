@@ -17,7 +17,7 @@ export default function SchappenplanPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-steelies-navy py-16 px-6 text-center">
+      <section className="bg-steelies-navy py-20 px-6 text-center">
         <p className="text-[#00C8E8] font-semibold uppercase tracking-widest text-sm mb-3">
           A.S.F. Fischer BV
         </p>

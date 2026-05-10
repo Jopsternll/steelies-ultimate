@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: 'Wanneer heb je een boorpunt nodig?',
-    a: 'Bij een metal stud dikker dan 0,9 mm.',
+    a: 'Werk je met dikkere metalstud profielen van 0,9 mm of meer? Kies dan voor een gipsplaatschroef met boorpunt. De boorpunt snijdt moeiteloos door de stud.',
   },
   {
     q: 'Welke segmenten zijn er?',
