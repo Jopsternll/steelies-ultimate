@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'Wat is het verschil tussen grove en fijne draad bij een gipsplaatschroef?',
-    a: 'Gipsplaatschroeven zijn er in twee draadvormen: grove draad en fijne draad. Grove draad heeft wijdere windingen en is bedoeld voor montage op houten constructies — de grote stappen grijpen stevig in het hout. Fijne draad heeft nauwere windingen en is speciaal ontwikkeld voor metal studs (dunwandige stalen profielen). De kleine stappen snijden nauwkeurig door het staal zonder de studs te vervormen. Gebruik altijd de juiste variant: grove draad in hout, fijne draad in metal stud.',
+    a: 'Gipsplaatschroeven zijn er in twee draadvormen: grove draad en fijne draad. Grove draad heeft wijdere windingen en is bedoeld voor montage op houten constructies. Fijne draad heeft nauwere windingen en is speciaal ontwikkeld voor metal studs (dunwandige stalen profielen). De fijne draad snijd nauwkeurig door het staal zonder de studs te vervormen. Gebruik altijd de juiste variant: grove draad in hout, fijne draad in metal stud.',
   },
   {
-    q: 'Hoeveel producten heeft Steelies Ultimate?',
-    a: '8.043 artikelen verdeeld over 5 segmenten: Metrisch (5.875), Houtdraad (1.337), Parkers (346), Nagels (314) en Verankeringen (171).',
+    q: 'Wanneer heb je een boorpunt nodig?',
+    a: 'Bij een metal stud dikker dan 0,9 mm.',
   },
   {
     q: 'Welke segmenten zijn er?',
