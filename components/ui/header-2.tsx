@@ -43,7 +43,7 @@ export function Header() {
 							src="/Steelies_logo_pantone.png"
 							alt="Steelies Ultimate"
 							fill
-							className="object-contain object-left"
+							className="object-contain"
 							priority
 						/>
 					</Link>
