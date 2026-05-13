@@ -57,21 +57,6 @@ export default function HeroSection() {
           vakhandel. Vijf duidelijke segmenten — alles wat u nodig heeft op één plek.
         </motion.p>
 
-        {/* CTA */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center pt-2"
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          transition={{ delay: 0.95, duration: 0.45, ease: "easeOut" }}
-        >
-          <a
-            href="#segmenten"
-            className="px-8 py-3 bg-steelies-blue text-white font-semibold rounded-lg hover:bg-steelies-navy transition-colors duration-200"
-          >
-            Bekijk segmenten
-          </a>
-        </motion.div>
       </div>
     </AuroraBackground>
   );
