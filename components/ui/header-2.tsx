@@ -36,7 +36,7 @@ export function Header() {
 					{/* Logo */}
 					<Link
 						href="/"
-						className="relative h-10 w-40 shrink-0"
+						className="relative h-[50px] w-[200px] shrink-0"
 						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 					>
 						<Image
