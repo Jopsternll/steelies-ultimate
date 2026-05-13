@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -33,19 +32,13 @@ export function Header() {
 		<>
 			<header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 supports-[backdrop-filter]:bg-background/60 backdrop-blur-lg">
 				<nav className="flex h-14 w-full max-w-5xl mx-auto items-center justify-between px-4">
-					{/* Logo */}
+					{/* Home link */}
 					<Link
 						href="/"
-						className="relative h-10 w-40 shrink-0"
+						className="font-bold text-steelies-dark hover:text-[#00C8E8] transition-colors shrink-0"
 						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 					>
-						<Image
-							src="/Steelies_logo_pantone.png"
-							alt="Steelies Ultimate"
-							fill
-							className="object-contain object-left"
-							priority
-						/>
+						Steelies Ultimate
 					</Link>
 
 					{/* Desktop nav */}
