@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
@@ -25,25 +24,6 @@ export default function HeroSection() {
   return (
     <AuroraBackground>
       <div className="relative z-10 flex flex-col items-center justify-center gap-6 px-6 text-center max-w-4xl mx-auto">
-
-        {/* Logo — verschijnt als eerste */}
-        <motion.button
-          variants={popIn}
-          initial="hidden"
-          animate="show"
-          transition={spring(0.05)}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="relative w-72 h-28 sm:w-96 sm:h-36 cursor-pointer"
-          aria-label="Naar bovenkant"
-        >
-          <Image
-            src="/Steelies_logo_pantone.png"
-            alt="Steelies Ultimate"
-            fill
-            className="object-contain"
-            priority
-          />
-        </motion.button>
 
         {/* Divider */}
         <motion.div
