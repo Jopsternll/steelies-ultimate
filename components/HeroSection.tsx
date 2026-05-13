@@ -9,7 +9,7 @@ const popIn = {
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 40 },
   show:   { opacity: 1, y: 0 },
 };
 
@@ -54,13 +54,13 @@ export default function HeroSection() {
           transition={spring(0.38)}
         />
 
-        {/* Tagline — iets later, explosief */}
+        {/* Tagline — inschuiven van onder */}
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl font-black tracking-widest text-steelies-dark uppercase"
-          variants={popIn}
+          variants={fadeUp}
           initial="hidden"
           animate="show"
-          transition={spring(0.42)}
+          transition={{ delay: 0.42, duration: 0.55, ease: "easeOut" }}
         >
           STERK IN <span className="text-steelies-blue">VERBINDEN</span>
         </motion.h1>
