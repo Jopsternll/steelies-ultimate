@@ -19,7 +19,7 @@ const segments = [
     title: 'Verankeringen',
     colorLabel: 'PAARS',
     description:
-      'Van eenvoudige nylon plug tot zware slagplug voor beton — het verankeringssegment biedt voor elke ondergrond en belasting de juiste bevestigingsoplossing. Geschikt voor gebruik in beton, baksteen, gips en hout.',
+      'Heb je een doorsteekanker of slagplug nodig? Ga dan voor het PAARSE segment. Hierin vind je alle lichte en zware verankeringen. Van nylon pluggen tot slagpluggen en spanhulzen, van messing spreidpluggen tot plafondverankeringen en het volledige assortiment betonkozijnschroeven.',
     products: [
       'Nylon pluggen',
       'Slagpluggen & spanhulzen',
@@ -41,7 +41,7 @@ const segments = [
     title: 'Parkers & Gipsplaatschroeven',
     colorLabel: 'BLAUW',
     description:
-      'Zelftappers, parkers en gipsplaatschroeven voor de lichte en zware constructiebouw. Zowel los als op band leverbaar. Ideaal voor hout-op-staal, stalen onderconstructies en het monteren van gipsplaat.',
+      'In het BLAUWE segment vind je de parkers, zelftappers en gipsplaatschroeven (zowel los als op band). Zoals de zelfborende plaatschroeven, de vleugelteksschroeven voor toepassingen van hout op staal en de dak- en gevelschroeven (type BZ) voor stalen onderconstructies.',
     products: [
       'Zelftappers & parkers',
       'Zelfborende plaatschroeven',
@@ -63,7 +63,7 @@ const segments = [
     title: 'Houtdraad',
     colorLabel: 'GEEL',
     description:
-      'Alles voor bevestigingen in hout en houten onderconstructies. Van de klassieke spaanplaatschroef tot houtdraadbouten en kozijnschroeven. Geschikt voor gebruik met of zonder plug.',
+      'Ben je op zoek naar een spaanplaatschroef? Ga dan voor GEEL in het Steelies Ultimate-schap van jouw favoriete vakwinkel. Hierin vind je alles voor toepassingen in houten onderconstructies of in combinatie met een plug. Zoals houtdraadbouten, spaanplaatschroeven en vele andere bevestigingsmaterialen.',
     products: [
       'Spaanplaatschroeven',
       'Houtdraadbouten',
@@ -85,7 +85,7 @@ const segments = [
     title: 'Metrisch Schroefdraad',
     colorLabel: 'ROOD',
     description:
-      'Het complete aanbod metrische verbindingsmiddelen volgens DIN-norm. De standaard voor staal-op-staal verbindingen in de industrie, installatie en machinebouw. Verkrijgbaar in diverse sterktes en uitvoeringen.',
+      'In segment ROOD vind je alle producten volgens DIN met metrisch schroefdraad. Denk hierbij aan bouten, moeren, ringen, metaalschroeven, etc.',
     products: [
       'Bouten (DIN-norm)',
       'Moeren & sluitringen',
@@ -107,7 +107,7 @@ const segments = [
     title: 'Nagels & Klein Ijzerwaren',
     colorLabel: 'ORANJE',
     description:
-      'Klein ijzerwaren en nagels voor dagelijks gebruik in de bouw en doe-het-zelf sector. Alles wat niet in de andere segmenten past maar toch onmisbaar is op de werkplek of in het schap.',
+      'Klein ijzerwaren zoals schroefogen, S-haken en schroefduimen zijn terug te vinden in de Steelies Ultimate-verpakkingen met ORANJE etiket. Daarnaast valt ook een diversiteit aan nagels binnen dit segment.',
     products: [
       'Nagels (diverse soorten)',
       'Schroefogen & schroefduimen',
