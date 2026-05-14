@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import FooterContactButton from './FooterContactButton'
 
 export default function Footer() {
   return (
@@ -52,12 +52,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-500 text-xs">
           <p>© {new Date().getFullYear()} A.S.F. Fischer BV — Alle rechten voorbehouden</p>
-          <Link
-            href="/contact"
-            className="px-5 py-2 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors text-xs whitespace-nowrap"
-          >
-            Neem contact op
-          </Link>
+          <FooterContactButton />
           <p>Steelies® Ultimate is een geregistreerd handelsmerk</p>
         </div>
       </div>
