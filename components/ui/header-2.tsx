@@ -53,7 +53,7 @@ export function Header() {
 						{links.map((link, i) => (
 							<a
 								key={i}
-								className={buttonVariants({ variant: 'ghost' })}
+								className={buttonVariants({ variant: 'ghost', className: 'rounded-full' })}
 								href={link.href}
 							>
 								{link.label}
