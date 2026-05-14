@@ -40,11 +40,6 @@ export default function Footer() {
                   www.asf-fischer.nl
                 </a>
               </li>
-              <li>
-                <a href="#segmenten" className="hover:text-white transition-colors">
-                  Onze segmenten
-                </a>
-              </li>
             </ul>
           </div>
         </div>
