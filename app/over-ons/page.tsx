@@ -143,7 +143,7 @@ export default function OverOnsPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/segmenten"
-            className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200"
+            className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors duration-200"
           >
             Bekijk Segmenten
           </a>
@@ -179,7 +179,7 @@ function Card({ item, isActive }: { item: typeof timeline[number]; isActive: boo
             <span className="text-xs">Afbeelding volgt</span>
           </div>
         )}
-        <div className="absolute top-3 left-3 bg-steelies-navy text-[#00C8E8] font-black text-base px-3 py-1 rounded-lg z-10">
+        <div className="absolute top-3 left-3 bg-steelies-navy text-[#00C8E8] font-black text-base px-3 py-1 rounded-full z-10">
           {item.year}
         </div>
       </div>

@@ -131,13 +131,13 @@ export default function FaqPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/assortiment"
-            className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200"
+            className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors duration-200"
           >
             Bekijk Assortiment
           </Link>
           <Link
             href="/#contact"
-            className="px-8 py-3 border border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors duration-200"
+            className="px-8 py-3 border border-white text-white font-bold rounded-full hover:bg-white/10 transition-colors duration-200"
           >
             Neem Contact Op
           </Link>

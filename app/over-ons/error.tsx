@@ -13,7 +13,7 @@ export default function Error({ reset }: { reset: () => void }) {
       </p>
       <button
         onClick={reset}
-        className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200"
+        className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors duration-200"
       >
         Probeer opnieuw
       </button>

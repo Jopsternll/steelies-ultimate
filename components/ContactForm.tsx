@@ -81,7 +81,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => setState('idle')}
-          className="px-6 py-2 bg-steelies-navy text-white font-semibold rounded-lg hover:bg-[#1A2F5A] transition-colors text-sm"
+          className="px-6 py-2 bg-steelies-navy text-white font-semibold rounded-full hover:bg-[#1A2F5A] transition-colors text-sm"
         >
           Nieuw bericht
         </button>
@@ -169,7 +169,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={state === 'submitting'}
-          className="w-full sm:w-auto px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full sm:w-auto px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {state === 'submitting' ? 'Versturen…' : 'Verstuur bericht'}
         </button>

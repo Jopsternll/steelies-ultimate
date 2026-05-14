@@ -82,7 +82,7 @@ export default function SchappenplanPage() {
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <a
                   href="#aanvragen"
-                  className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-lg hover:bg-[#00aecb] transition-colors duration-200 text-center"
+                  className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors duration-200 text-center"
                 >
                   Vraag een schappenplan aan
                 </a>

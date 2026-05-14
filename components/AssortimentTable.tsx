@@ -338,7 +338,7 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
               <span className="font-semibold text-steelies-dark">{sortedProducts.length.toLocaleString('nl-NL')}</span> artikelen gevonden
             </span>
             <div className="relative" ref={colMenuRef}>
-              <button onClick={() => setColMenuOpen(o => !o)} className="flex items-center gap-1 px-3 py-1 border border-gray-200 rounded-lg text-gray-500 hover:bg-gray-50 transition-colors">
+              <button onClick={() => setColMenuOpen(o => !o)} className="flex items-center gap-1 px-3 py-1 border border-gray-200 rounded-full text-gray-500 hover:bg-gray-50 transition-colors">
                 Kolommen <ChevronDown className="w-3 h-3" />
               </button>
               {colMenuOpen && (
@@ -368,10 +368,10 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
                 {favorites.size} artikel{favorites.size !== 1 ? 'en' : ''} geselecteerd
               </span>
               <div className="flex gap-2 ml-0 sm:ml-auto flex-wrap">
-                <button onClick={exportFavToExcel} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00C8E8] text-steelies-navy font-semibold text-xs rounded-lg hover:bg-[#00aecb] transition-colors">
+                <button onClick={exportFavToExcel} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00C8E8] text-steelies-navy font-semibold text-xs rounded-full hover:bg-[#00aecb] transition-colors">
                   <TableIcon className="w-3.5 h-3.5" /> Selectie Excel
                 </button>
-                <button onClick={exportFavToPDF} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 text-white font-semibold text-xs rounded-lg hover:bg-white/20 transition-colors border border-white/20">
+                <button onClick={exportFavToPDF} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 text-white font-semibold text-xs rounded-full hover:bg-white/20 transition-colors border border-white/20">
                   <FileDown className="w-3.5 h-3.5" /> Selectie PDF
                 </button>
                 <button onClick={() => setFavorites(new Set())} className="flex items-center gap-1.5 px-3 py-1.5 text-white/60 hover:text-white text-xs transition-colors">
@@ -492,10 +492,10 @@ export default function AssortimentTable({ products }: { products: Product[] }) 
         <div className="flex items-center justify-between mt-4 text-sm text-gray-500">
           <span>Pagina {page} van {totalPages}</span>
           <div className="flex gap-2">
-            <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} className="px-4 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+            <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} className="px-4 py-1.5 border border-gray-200 rounded-full hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
               Vorige
             </button>
-            <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages} className="px-4 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+            <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages} className="px-4 py-1.5 border border-gray-200 rounded-full hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
               Volgende
             </button>
           </div>
