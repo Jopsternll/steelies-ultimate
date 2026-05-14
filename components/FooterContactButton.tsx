@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { ChevronRight } from 'lucide-react'
 
 export default function FooterContactButton() {
   const pathname = usePathname()
@@ -10,9 +11,10 @@ export default function FooterContactButton() {
   return (
     <Link
       href="/contact"
-      className="px-5 py-2 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors text-xs whitespace-nowrap"
+      className="inline-flex items-center gap-2 px-5 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors text-sm"
     >
-      Neem contact op
+      Ga naar het contactformulier
+      <ChevronRight className="w-4 h-4" />
     </Link>
   )
 }
