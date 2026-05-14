@@ -203,7 +203,7 @@ export default function SegmentenPage() {
           Neem contact op met ons team voor meer informatie over het assortiment.
         </p>
         <Link
-          href="/#contact"
+          href="/contact"
           className="inline-block px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors duration-200"
         >
           Neem contact op
