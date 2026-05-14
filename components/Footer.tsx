@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import FooterContactButton from './FooterContactButton'
+import FooterLogo from './FooterLogo'
 
 export default function Footer() {
   return (
@@ -8,17 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
           {/* Logo + tagline */}
           <div className="flex flex-col items-start gap-4">
-            <div className="relative w-48 h-20">
-              <Image
-                src="/Steelies_logo_pantone.png"
-                alt="Steelies Ultimate"
-                fill
-                className="object-contain brightness-0 invert"
-              />
-            </div>
-            <p className="text-steelies-light font-semibold tracking-widest text-sm uppercase">
-              Sterk in <span className="text-[#00C8E8]">Verbinden</span>
-            </p>
+            <FooterLogo />
             <p className="text-gray-400 text-sm leading-relaxed">
               Het complete bevestigingsmiddelen assortiment voor de professionele vakhandel.
             </p>
