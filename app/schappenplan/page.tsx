@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import ContactForm from '@/components/ContactForm'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Schappenplan',
@@ -80,12 +80,12 @@ export default function SchappenplanPage() {
               </div>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#aanvragen"
+                <Link
+                  href="/contact?onderwerp=schappenplan"
                   className="px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors duration-200 text-center"
                 >
                   Vraag een schappenplan aan
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -132,24 +132,20 @@ export default function SchappenplanPage() {
         </div>
       </section>
 
-      {/* Contactformulier */}
-      <section id="aanvragen" className="bg-gray-50 py-16 scroll-mt-28">
-        <div className="max-w-5xl mx-auto px-4">
-        <div className="max-w-2xl mx-auto text-center mb-10">
-          <p className="text-[#00C8E8] font-semibold uppercase tracking-widest text-sm mb-3">
-            Direct aanvragen
-          </p>
-          <h2 className="text-3xl font-black text-steelies-dark uppercase tracking-wide mb-4">
-            Vraag een schappenplan aan
-          </h2>
-          <div className="h-1 w-16 bg-[#00C8E8] mx-auto mb-4" />
-          <p className="text-gray-500">
-            Vul het formulier in en ons team neemt zo spoedig mogelijk contact met u op
-            met een passend schappenplan.
-          </p>
-        </div>
-        <ContactForm />
-        </div>
+      {/* CTA */}
+      <section className="bg-steelies-navy py-14 text-center px-4">
+        <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide mb-4">
+          Klaar om een plan aan te vragen?
+        </h2>
+        <p className="text-gray-300 mb-8 max-w-md mx-auto">
+          Stuur ons de doelgroep en de breedte van uw schap. Wij leveren een schappenplan op maat.
+        </p>
+        <Link
+          href="/contact?onderwerp=schappenplan"
+          className="inline-block px-8 py-3 bg-[#00C8E8] text-steelies-navy font-bold rounded-full hover:bg-[#00aecb] transition-colors duration-200"
+        >
+          Vraag een schappenplan aan
+        </Link>
       </section>
     </main>
   )

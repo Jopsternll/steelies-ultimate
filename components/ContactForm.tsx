@@ -22,8 +22,8 @@ const empty: FormData = {
   opmerking: '',
 }
 
-export default function ContactForm() {
-  const [data, setData] = useState<FormData>(empty)
+export default function ContactForm({ defaultOpmerking = '' }: { defaultOpmerking?: string }) {
+  const [data, setData] = useState<FormData>({ ...empty, opmerking: defaultOpmerking })
   const [errors, setErrors] = useState<Partial<FormData>>({})
   const [state, setState] = useState<FormState>('idle')
 

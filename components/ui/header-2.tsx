@@ -15,7 +15,7 @@ export function Header() {
 		{ label: 'Schappenplan', href: '/schappenplan' },
 		{ label: 'Over ons', href: '/over-ons' },
 		{ label: 'FAQ', href: '/faq' },
-		{ label: 'Contact', href: '/#contact' },
+		{ label: 'Contact', href: '/contact' },
 	];
 
 	React.useEffect(() => {

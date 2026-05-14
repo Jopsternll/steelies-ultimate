@@ -9,6 +9,7 @@ const labelMap: Record<string, string> = {
   assortiment: 'Assortiment',
   schappenplan: 'Schappenplan',
   'over-ons': 'Over ons',
+  contact: 'Contact',
 }
 
 export default function Breadcrumbs() {
