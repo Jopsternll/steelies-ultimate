@@ -63,7 +63,7 @@ export default function OverOnsPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-steelies-navy py-16 px-6 text-center">
+      <section className="bg-steelies-navy py-16 text-center px-4">
         <p className="text-[#00C8E8] font-semibold uppercase tracking-widest text-sm mb-3">
           Steelies Ultimate
         </p>
@@ -78,8 +78,8 @@ export default function OverOnsPage() {
       </section>
 
       {/* Timeline */}
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="bg-white py-20">
+        <div className="max-w-5xl mx-auto px-4">
 
           {/* Desktop timeline */}
           <div ref={timelineRef} className="relative hidden md:block">
@@ -133,7 +133,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-steelies-navy py-14 px-6 text-center">
+      <section className="bg-steelies-navy py-14 text-center">
         <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide mb-4">
           Werken met Steelies?
         </h2>

@@ -46,7 +46,7 @@ export default function FaqPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-steelies-navy py-16 px-6 text-center">
+      <section className="bg-steelies-navy py-16 text-center px-4">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -106,8 +106,8 @@ export default function FaqPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-steelies-light py-16 px-6">
-        <div className="max-w-3xl mx-auto space-y-4">
+      <section className="bg-steelies-light py-16">
+        <div className="max-w-5xl mx-auto px-4 space-y-4">
           {faqs.map(({ q, a }) => (
             <details key={q} className="bg-white rounded-xl shadow-sm border border-gray-100 group">
               <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-steelies-dark list-none">
@@ -121,7 +121,7 @@ export default function FaqPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-steelies-navy py-14 px-6 text-center">
+      <section className="bg-steelies-navy py-14 text-center">
         <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide mb-4">
           Meer weten?
         </h2>

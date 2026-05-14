@@ -53,8 +53,8 @@ export default function AboutSection() {
   const { ref: gridRef, inView: gridInView } = useInView(0.1)
 
   return (
-    <section className="relative bg-steelies-light py-10 px-6 [box-shadow:0_8px_24px_-4px_rgba(0,0,0,0.12)]">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative bg-steelies-light py-10 [box-shadow:0_8px_24px_-4px_rgba(0,0,0,0.12)]">
+      <div className="max-w-5xl mx-auto px-4">
         {/* Header */}
         <div
           ref={headerRef}

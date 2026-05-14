@@ -131,8 +131,8 @@ export default function SegmentenPage() {
     <main>
       <h1 className="sr-only">Steelies Ultimate Segmenten</h1>
       {/* Quick nav */}
-      <section className="sticky top-14 z-40 bg-white border-b border-gray-100 py-4 px-6">
-        <div className="max-w-5xl mx-auto flex flex-nowrap justify-center gap-2 overflow-x-auto">
+      <section className="sticky top-14 z-40 bg-white border-b border-gray-100 py-4">
+        <div className="max-w-5xl mx-auto px-4 flex flex-nowrap justify-center gap-2 overflow-x-auto">
           {segments.map((s) => (
             <a
               key={s.id}
@@ -150,9 +150,9 @@ export default function SegmentenPage() {
         <section
           key={s.id}
           id={s.id}
-          className={`py-16 px-6 scroll-mt-20 ${i % 2 === 0 ? 'bg-white' : s.lightBg}`}
+          className={`py-16 scroll-mt-20 ${i % 2 === 0 ? 'bg-white' : s.lightBg}`}
         >
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto px-4">
             <div className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 items-center`}>
 
               {/* Image */}
@@ -195,7 +195,7 @@ export default function SegmentenPage() {
       ))}
 
       {/* CTA onderaan */}
-      <section className="bg-steelies-navy py-14 px-6 text-center">
+      <section className="bg-steelies-navy py-14 text-center">
         <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide mb-4">
           Klaar om te bestellen?
         </h2>

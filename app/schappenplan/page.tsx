@@ -17,7 +17,7 @@ export default function SchappenplanPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-steelies-navy py-20 px-6 text-center">
+      <section className="bg-steelies-navy py-20 text-center px-4">
         <p className="text-[#00C8E8] font-semibold uppercase tracking-widest text-sm mb-3">
           Steelies Ultimate
         </p>
@@ -31,8 +31,8 @@ export default function SchappenplanPage() {
       </section>
 
       {/* Main content */}
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="bg-white py-20">
+        <div className="max-w-5xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-14 items-center">
 
             {/* Image */}
@@ -94,8 +94,8 @@ export default function SchappenplanPage() {
       </section>
 
       {/* Steps */}
-      <section className="bg-steelies-light py-16 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="bg-steelies-light py-16">
+        <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-black text-steelies-dark uppercase tracking-wide text-center mb-12">
             Hoe werkt het?
           </h2>
@@ -133,7 +133,8 @@ export default function SchappenplanPage() {
       </section>
 
       {/* Contactformulier */}
-      <section id="aanvragen" className="bg-gray-50 py-16 px-6 scroll-mt-28">
+      <section id="aanvragen" className="bg-gray-50 py-16 scroll-mt-28">
+        <div className="max-w-5xl mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center mb-10">
           <p className="text-[#00C8E8] font-semibold uppercase tracking-widest text-sm mb-3">
             Direct aanvragen
@@ -148,6 +149,7 @@ export default function SchappenplanPage() {
           </p>
         </div>
         <ContactForm />
+        </div>
       </section>
     </main>
   )
